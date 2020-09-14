@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Client from 'shopify-buy';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+const client = Client.buildClient({
+  domain: 'shlyapa-free.myshopify.com',
+  storefrontAccessToken: 'e47b6d51fdbe8822f546dcc285a826fa'
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App client={client}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
